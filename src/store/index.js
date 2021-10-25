@@ -4,23 +4,14 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import userStore from '@/store/modules/userStore.js';
+import postStore from '@/store/modules/postStore.js';
+import sampleStore from '@/store/modules/sampleStore.js';
+
 export default new Vuex.Store({
-    state: {
-        message: 'Hello'
-    },
-    mutations: {
-        changeMessage (state, newMsg) {
-            state.message = newMsg;
-        }
-    },
-    actions: {
-        callMutation({state, commit}, {newMsg}) {
-            commit('changeMessage', newMsg);
-        }
-    },
-    getters: {
-        getMessage (state) {
-            return state.message;
-        }
+    modules: {
+        userStore: userStore,
+        postStore: postStore,
+        sampleStore: sampleStore
     }
 })
